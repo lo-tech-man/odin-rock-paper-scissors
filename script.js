@@ -36,3 +36,56 @@ let humanChoice = getHumanChoice();
 
 let humanScore = 0;
 let computerScore = 0;
+
+function displayChoices() {
+	console.log(`Your pick: ${humanChoice} -- Opponent's pick: ${computerChoice}`);
+}
+
+function displayScores() {
+	console.log(`Your score: ${humanScore} -- Opponent's score: ${computerScore}`);
+}
+
+function playRound(humanChoice, computerChoice) {
+	displayChoices();
+
+	switch (humanChoice) {
+		case "rock":
+			if (computerChoice === "scissors") {
+				console.log("You score! Rock beats scissors.");
+				humanScore++;
+			} else if (computerChoice === "paper") {
+				console.log("Opponent scores! Paper beats rock.")
+				computerScore++;
+			} else {
+				console.log("Round draw!");
+			}
+			break;
+
+		case "paper":
+			if (computerChoice === "rock") {
+				console.log("You score! Paper beats rock.");
+				humanScore++;
+			} else if (computerChoice === "scissors") {
+				console.log("Opponent scores! Scissors beats paper.");
+				computerScore++;
+			} else {
+				console.log("Round draw!");
+			}
+			break;
+		
+		case "scissors":
+			if (computerChoice === "paper") {
+				console.log("You score! Scissors beats paper.");
+				humanScore++;
+			} else if (computerChoice === "rock") {
+				console.log("Opponent scores! Rock beats scissors.");
+				computerScore++;
+			} else {
+				console.log("Round draw!");
+			}
+			break;
+	}
+	displayScores();
+}
+
+playRound(humanChoice, computerChoice);
