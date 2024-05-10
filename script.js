@@ -33,3 +33,6 @@ function getHumanChoice() {
 
 let computerChoice = getComputerChoice(0, 2);
 let humanChoice = getHumanChoice();
+
+let humanScore = 0;
+let computerScore = 0;
