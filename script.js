@@ -31,8 +31,8 @@ function getHumanChoice() {
 	}
 }
 
-let computerChoice = getComputerChoice(0, 2);
-let humanChoice = getHumanChoice();
+let computerChoice;
+let humanChoice;
 
 let humanScore = 0;
 let computerScore = 0;
@@ -43,6 +43,20 @@ function displayChoices() {
 
 function displayScores() {
 	console.log(`Your score: ${humanScore} -- Opponent's score: ${computerScore}`);
+}
+
+function showFinalResults() {
+	console.log(`--- FINAL RESULTS ---
+	You: ${humanScore}
+	Opponent: ${computerScore}`);
+
+	if (humanScore > computerScore) {
+		console.log("Congratulations! You win!");
+	} else if (humanScore < computerScore) {
+		console.log("You lose! Better luck next time!");
+	} else {
+		console.log("Woah! It's a tie!");
+	}
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -88,4 +102,10 @@ function playRound(humanChoice, computerChoice) {
 	displayScores();
 }
 
-playRound(humanChoice, computerChoice);
+for (let i = 0; i < 5; i++) {
+	computerChoice = getComputerChoice(0, 2);
+	humanChoice = getHumanChoice();
+	playRound(humanChoice, computerChoice);
+}
+
+showFinalResults();
